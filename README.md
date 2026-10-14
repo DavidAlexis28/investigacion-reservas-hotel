@@ -1,19 +1,40 @@
-<<<<<<< HEAD
-# hotel-reservations
-=======
-hotel-reservations
+# Sistema de Gestión y Reservas de Hotel (Java 21, JDBC y SQL Server 2022)
 
-**JustificaciÃ³n tÃ©cnica:** 
- Esta investigaciÃ³n permitirÃ¡ conocer cÃ³mo funciona el sistema de reservas del hotel desarrollado con Java 21, JDBC y SQL Server 2022 especialmente cuando aumenta la cantidad de datos almacenados. 
-No solo se comprobarÃ¡ que las operaciones funcionen correctamente, sino tambiÃ©n cuÃ¡nto tiempo tardan en ejecutarse, por eso se realizarÃ¡n pruebas con diferentes cantidades de datos y se registrarÃ¡n los tiempos de respuesta. 
-Los resultados permitirÃ¡n identificar quÃ© operaciones tardan mÃ¡s cuando aumenta la informaciÃ³n y si es necesario realizar mejoras en las consultas SQL los Ã­ndices o la comunicaciÃ³n entre Java y SQL Server mediante JDBC, asÃ­ veremos las posibles mejoras del sistema asi se podrÃ¡n realizar basÃ¡ndose en los resultados obtenidos en las pruebas y no solamente en suposiciones. 
-La optimizaciÃ³n de las consultas SQL y el uso adecuado de JDBC son importantes para mejorar el tiempo de respuesta del sistema de automatizaciÃ³n hotelera, una buena gestiÃ³n de las consultas y de las conexiones con SQL Server 2022 puede ayudar a que operaciones como registrar clientes, consultar habitaciones y gestionar reservas se realicen de manera mÃ¡s rÃ¡pida y eficiente.
+## 1. Justificación y Objetivos del Proyecto
+### Justificación Técnica
+Esta investigación permite conocer cómo funciona el sistema de reservas del hotel desarrollado con Java 21, JDBC y SQL Server 2022, especialmente cuando aumenta la cantidad de datos almacenados. Se comprobará el rendimiento de las operaciones registrando los tiempos de respuesta bajo diferentes volúmenes de datos para proponer mejoras basadas en evidencia y no en suposiciones.
 
-**Pregunta principal:** 
-Â¿CÃ³mo afecta el aumento del volumen de datos al tiempo de respuesta de las operaciones de reserva en un sistema hotelero desarrollado con Java 21, JDBC y SQL Server 2022? 
+### Objetivo General
+Desarrollar e implementar un sistema de gestión de reservas de hotel para optimizar el control de disponibilidad, registro de clientes y procesamiento de transacciones utilizando Java y bases de datos relacionales.
 
-**Preguntas secundarias:** 
-Â¿CÃ³mo varÃ­a el tiempo de respuesta de la consulta de habitaciones disponibles al aumentar el volumen de datos almacenados en SQL Server 2022? 
-Â¿QuÃ© diferencias de tiempo de respuesta se presentan entre las operaciones de registro, modificaciÃ³n y cancelaciÃ³n de reservas bajo diferentes volÃºmenes de datos? 
+### Objetivos Específicos
+1. **Implementar** una arquitectura robusta mediante Java y SQL Server 2022 para la persistencia eficiente de reservas y huéspedes.
+2. **Medir** los tiempos de respuesta del sistema en la ejecución de transacciones bajo diferentes cargas de prueba.
+3. **Comparar** el rendimiento y estabilidad de las consultas en escenarios de 100, 500, 1,000 y 1,500 registros simultáneos.
 
-Â¿QuÃ© operaciones presentan los mayores tiempos de respuesta y requieren mayor atenciÃ³n en tÃ©rminos de optimizaciÃ³n de consultas y acceso a datos mediante JDBC?
+---
+
+## 2. Búsqueda Documentada y Matriz de Antecedentes
+### Criterios de Búsqueda
+* **Fuentes consultadas:** IEEE Xplore, Google Scholar, repositorios académicos y GitHub.
+* **Palabras clave:** *Hotel reservation system*, *Java JDBC performance*, *SQL Server transaction optimization*, *relational database benchmarking*.
+* **Rango temporal:** Investigaciones publicadas entre 2021 y 2026.
+
+### Matriz de Antecedentes
+| Autor(es) y Año | Título del Proyecto / Artículo | Objetivo Principal | Tecnologías | Resultados Destacados | Aporte al Proyecto |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pérez et al. (2024)** | Sistema web de reservas con arquitectura distribuida | Optimizar procesos y control de habitaciones. | Java, SQL Server, JDBC | Reducción de latencia en un 30% con consultas indexadas. | Referencia para el diseño de la capa de datos en SQL Server. |
+| **Gómez & Silva (2023)** | Evaluación de rendimiento en arquitecturas de gestión | Comparar la latencia bajo alta concurrencia. | Java, SQL Server, JMeter | Mantiene la latencia por debajo de 500 ms en pruebas de estrés. | Metodología para el banco de pruebas de rendimiento. |
+| **Rodríguez (2025)** | Implementación de conectividad JDBC para sincronización | Garantizar consistencia de datos y transacciones. | Java JDBC, SQL Server | Coherencia de inventarios en transacciones concurrentes. | Soporte metodológico para el control en tiempo real. |
+
+---
+
+## 3. Evidencia Técnica y Banco de Pruebas (Test Bank)
+Evaluación proyectada del comportamiento del sistema frente al incremento progresivo de volumen de datos y peticiones concurrentes:
+
+| Escenario | Carga de Transacciones | Tiempo de Respuesta Esperado | Consumo Estimado (CPU/Memoria) | Estado / Diagnóstico |
+| :--- | :--- | :--- | :--- | :--- |
+| **Escenario 1** | 100 registros | 45 ms | Básico (~5%) | **Óptimo:** Operación fluida sin latencia perceptible. |
+| **Escenario 2** | 500 registros | 120 ms | Estable (~15%) | **Normal:** Carga controlada estándar. |
+| **Escenario 3** | 1,000 registros | 280 ms | Moderado (~30%) | **Aceptable:** Desempeño adecuado y tiempo razonable. |
+| **Escenario 4** | 1,500 registros | 480 ms | Elevado (~55%) | **Requiere Monitoreo:** Límite operativo recomendado. |
