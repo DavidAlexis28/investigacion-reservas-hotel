@@ -1,40 +1,172 @@
-# Sistema de Gesti�n y Reservas de Hotel (Java 21, JDBC y SQL Server 2022)
+# Sistema de Gestión y Reservas de Hotel (Java 21, JDBC y SQL Server 2022)
 
-## 1. Justificaci�n y Objetivos del Proyecto
-### Justificaci�n T�cnica
-Esta investigaci�n permite conocer c�mo funciona el sistema de reservas del hotel desarrollado con Java 21, JDBC y SQL Server 2022, especialmente cuando aumenta la cantidad de datos almacenados. Se comprobar� el rendimiento de las operaciones registrando los tiempos de respuesta bajo diferentes vol�menes de datos para proponer mejoras basadas en evidencia y no en suposiciones.
+## 1. Justificación y Objetivos del Proyecto
+### Justificación Técnica
+Esta investigación permite conocer cómo funciona el sistema de reservas del hotel desarrollado con Java 21, JDBC y SQL Server 2022, especialmente cuando aumenta la cantidad de datos almacenados. Se comprobará el rendimiento de las operaciones registrando los tiempos de respuesta bajo diferentes volúmenes de datos para proponer mejoras basadas en evidencia y no en suposiciones.
 
 ### Objetivo General
-Desarrollar e implementar un sistema de gesti�n de reservas de hotel para optimizar el control de disponibilidad, registro de clientes y procesamiento de transacciones utilizando Java y bases de datos relacionales.
+Desarrollar e implementar un sistema de gestión de reservas de hotel para optimizar el control de disponibilidad, registro de clientes y procesamiento de transacciones utilizando Java y bases de datos relacionales.
 
-### Objetivos Espec�ficos
-1. **Implementar** una arquitectura robusta mediante Java y SQL Server 2022 para la persistencia eficiente de reservas y hu�spedes.
-2. **Medir** los tiempos de respuesta del sistema en la ejecuci�n de transacciones bajo diferentes cargas de prueba.
-3. **Comparar** el rendimiento y estabilidad de las consultas en escenarios de 100, 500, 1,000 y 1,500 registros simult�neos.
+### Objetivos Específicos
+1. **Implementar** una arquitectura robusta mediante Java y SQL Server 2022 para la persistencia eficiente de reservas y huéspedes.
+2. **Medir** los tiempos de respuesta del sistema en la ejecución de transacciones bajo diferentes cargas de prueba.
+3. **Comparar** el rendimiento y estabilidad de las consultas en escenarios de 100, 500, 1,000 y 1,500 registros simultáneos.
 
 ---
 
-## 2. B�squeda Documentada y Matriz de Antecedentes
-### Criterios de B�squeda
-* **Fuentes consultadas:** IEEE Xplore, Google Scholar, repositorios acad�micos y GitHub.
+## 2. Búsqueda Documentada y Matriz de Antecedentes
+### Criterios de Búsqueda
+* **Fuentes consultadas:** IEEE Xplore, Google Scholar, repositorios académicos y GitHub.
 * **Palabras clave:** *Hotel reservation system*, *Java JDBC performance*, *SQL Server transaction optimization*, *relational database benchmarking*.
 * **Rango temporal:** Investigaciones publicadas entre 2021 y 2026.
 
 ### Matriz de Antecedentes
-| Autor(es) y A�o | T�tulo del Proyecto / Art�culo | Objetivo Principal | Tecnolog�as | Resultados Destacados | Aporte al Proyecto |
+| Autor(es) y Año | Título del Proyecto / Artículo | Objetivo Principal | Tecnologías | Resultados Destacados | Aporte al Proyecto |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **P�rez et al. (2024)** | Sistema web de reservas con arquitectura distribuida | Optimizar procesos y control de habitaciones. | Java, SQL Server, JDBC | Reducci�n de latencia en un 30% con consultas indexadas. | Referencia para el dise�o de la capa de datos en SQL Server. |
-| **G�mez & Silva (2023)** | Evaluaci�n de rendimiento en arquitecturas de gesti�n | Comparar la latencia bajo alta concurrencia. | Java, SQL Server, JMeter | Mantiene la latencia por debajo de 500 ms en pruebas de estr�s. | Metodolog�a para el banco de pruebas de rendimiento. |
-| **Rodr�guez (2025)** | Implementaci�n de conectividad JDBC para sincronizaci�n | Garantizar consistencia de datos y transacciones. | Java JDBC, SQL Server | Coherencia de inventarios en transacciones concurrentes. | Soporte metodol�gico para el control en tiempo real. |
+| **Pérez et al. (2024)** | Sistema web de reservas con arquitectura distribuida | Optimizar procesos y control de habitaciones. | Java, SQL Server, JDBC | Reducción de latencia en un 30% con consultas indexadas. | Referencia para el diseño de la capa de datos en SQL Server. |
+| **Gómez & Silva (2023)** | Evaluación de rendimiento en arquitecturas de gestión | Comparar la latencia bajo alta concurrencia. | Java, SQL Server, JMeter | Mantiene la latencia por debajo de 500 ms en pruebas de estrés. | Metodología para el banco de pruebas de rendimiento. |
+| **Rodríguez (2025)** | Implementación de conectividad JDBC para sincronización | Garantizar consistencia de datos y transacciones. | Java JDBC, SQL Server | Coherencia de inventarios en transacciones concurrentes. | Soporte metodológico para el control en tiempo real. |
 
 ---
 
-## 3. Evidencia T�cnica y Banco de Pruebas (Test Bank)
-Evaluaci�n proyectada del comportamiento del sistema frente al incremento progresivo de volumen de datos y peticiones concurrentes:
+## 3. Evidencia Técnica y Banco de Pruebas (Test Bank)
+Evaluación proyectada del comportamiento del sistema frente al incremento progresivo de volumen de datos y peticiones concurrentes:
 
-| Escenario | Carga de Transacciones | Tiempo de Respuesta Esperado | Consumo Estimado (CPU/Memoria) | Estado / Diagn�stico |
+| Escenario | Carga de Transacciones | Tiempo de Respuesta Esperado | Consumo Estimado (CPU/Memoria) | Estado / Diagnóstico |
 | :--- | :--- | :--- | :--- | :--- |
-| **Escenario 1** | 100 registros | 45 ms | B�sico (~5%) | **�ptimo:** Operaci�n fluida sin latencia perceptible. |
-| **Escenario 2** | 500 registros | 120 ms | Estable (~15%) | **Normal:** Carga controlada est�ndar. |
-| **Escenario 3** | 1,000 registros | 280 ms | Moderado (~30%) | **Aceptable:** Desempe�o adecuado y tiempo razonable. |
-| **Escenario 4** | 1,500 registros | 480 ms | Elevado (~55%) | **Requiere Monitoreo:** L�mite operativo recomendado. |
+| **Escenario 1** | 100 registros | 45 ms | Básico (~5%) | **Óptimo:** Operación fluida sin latencia perceptible. |
+| **Escenario 2** | 500 registros | 120 ms | Estable (~15%) | **Normal:** Carga controlada estándar. |
+| **Escenario 3** | 1,000 registros | 280 ms | Moderado (~30%) | **Aceptable:** Desempeño adecuado y tiempo razonable. |
+| **Escenario 4** | 1,500 registros | 480 ms | Elevado (~55%) | **Requiere Monitoreo:** Límite operativo recomendado. |
+
+# Lumina Hotel and Resorts — Base de Datos
+
+## Descripción del proyecto
+
+Esta base de datos fue desarrollada para el sistema de gestión de reservaciones del hotel **Lumina Hotel and Resorts**, utilizando Microsoft SQL Server 2022.
+
+Su objetivo es organizar y administrar la información de los clientes, usuarios del sistema, habitaciones, tipos de habitación, reservas y pagos. También permite consultar la disponibilidad de habitaciones y validar que las reservaciones cumplan con las reglas establecidas.
+
+## Tecnologías utilizadas
+
+**Gestor de base de datos:** Microsoft SQL Server 2022.
+**Lenguaje:** Transact-SQL (T-SQL).
+**Entorno de desarrollo:** SQL Server Management Studio (SSMS).
+**Integración prevista:** Java 21 mediante JDBC.
+
+## Estructura de la base de datos
+
+La base de datos se llama `lumina_hotel_and_resorts` y está compuesta por seis tablas principales.
+
+|Tabla|Descripción|
+|---|---|
+|`Cliente`| Almacena los datos personales y de contacto de los clientes. |
+|Usuario`| Registra a los usuarios que administran el sistema y sus roles. |
+|`TipoHabitacion`| Define los tipos de habitación, su capacidad y precio por noche. |
+|`Habitacion`| Almacena el número, piso, tipo y estado de cada habitación. |
+|`Reserva`| Registra las reservaciones, sus fechas, huéspedes, precios y estados. |
+|`Pago`| Guarda los pagos relacionados con las reservaciones. |
+
+## Objetos de la base de datos
+
+### Índices
+
+Se crearon índices para facilitar las consultas relacionadas con las reservas y los pagos.
+
+`IX_Reserva_FechasEstado`: ayuda a consultar reservas por fechas y estado.
+-`IX_Reserva_Cliente`: facilita la búsqueda de reservas de un cliente.
+-`IX_Reserva_Habitacion`: ayuda a consultar las reservas de una habitación.
+-`IX_Pago_Reserva`: facilita la búsqueda de pagos asociados a una reserva.
+
+### Vista
+
+**`vw_ReservasDetalle`**
+
+Permite consultar información detallada de las reservaciones, incluyendo:
+
+-Código de reserva.
+-Nombre y datos de contacto del cliente.
+-úmero y tipo de habitación.
+-Fechas de entrada y salida.
+-Cantidad de noches.
+-Precio por noche y total estimado.
+-Estado de la reserva.
+
+### Triggers
+
+Se implementaron tres triggers para mantener las reglas de negocio:
+
+-**`TR_Reserva_FechaActualizacion`**: actualiza la fecha de modificación cuando se actualiza una reserva.
+-**`TR_Reserva_Capacidad`**: evita que una reserva supere la capacidad de la habitación.
+-**`TR_Reserva_NoSolapamiento`**: impide que existan reservas pendientes o confirmadas que se superpongan para la misma habitación.
+
+### Procedimiento almacenado
+
+**`sp_HabitacionesDisponibles`**
+
+Permite consultar las habitaciones disponibles según la fecha de entrada, la fecha de salida y la cantidad de huéspedes.
+
+El procedimiento valida las fechas y la cantidad de huéspedes, considera la capacidad de las habitaciones y excluye aquellas que tienen reservas pendientes o confirmadas durante el período solicitado.
+
+## reglas y validaciones
+
+La base de datos incluye restricciones para proteger la integridad de la información:
+
+- Los documentos de los clientes no pueden repetirse.
+- Los nombres de usuario y correos de los usuarios deben ser únicos.
+- La capacidad de una habitación debe ser mayor que cero.
+- Los precios no pueden ser negativos.
+- La fecha de salida debe ser posterior a la fecha de entrada.
+- La cantidad de huéspedes debe ser mayor que cero.
+- Los estados de habitaciones, reservas y pagos están limitados a valores permitidos.
+- Los pagos deben tener un monto mayor que cero.
+- Las relaciones entre tablas se controlan mediante claves foráneas.
+
+## Instalación y ejecución
+
+1. Instalar Microsoft SQL Server 2022.
+2. Abrir SQL Server Management Studio (SSMS) y conectarse a la instancia de SQL Server.
+3. Abrir el archivo `.sql` que contiene el script de la base de datos.
+4. Ejecutar el script completo.
+5. Verificar que se hayan creado las seis tablas, los índices, la vista, los triggers y el procedimiento almacenado.
+
+El script crea la base de datos `lumina_hotel_and_resorts` si todavía no existe y utiliza esa base para crear sus objetos.
+
+**Importante:** el script está diseñado para crear los objetos que aún no existen y actualizar la definición de la vista, los triggers y el procedimiento almacenado. No elimina ni reconstruye automáticamente las tablas existentes.
+
+## Ejemplo de consulta
+
+Para consultar las reservas con sus datos relacionados:
+
+```sql
+USE lumina_hotel_and_resorts;
+GO
+
+SELECT *
+FROM dbo.vw_ReservasDetalle;
+GO
+```
+
+Para consultar habitaciones disponibles para dos huéspedes:
+
+```sql
+EXEC dbo.sp_HabitacionesDisponibles
+    @FechaEntrada = '2026-11-01',
+    @FechaSalida = '2026-11-03',
+    @Huespedes = 2;
+GO
+```
+
+Las fechas del ejemplo pueden modificarse según las necesidades de la consulta.
+
+## Integración con el backend
+
+La base de datos está preparada para servir como componente de almacenamiento del sistema de reservaciones del hotel. Su integración con el backend está prevista mediante Java 21 y JDBC, para que la aplicación pueda registrar clientes, administrar habitaciones, gestionar reservaciones y consultar su disponibilidad.
+
+## Autoría
+
+Proyecto académico: **Lumina Hotel and Resorts**
+
+Componente: Diseño y desarrollo de la base de datos.
+
+
