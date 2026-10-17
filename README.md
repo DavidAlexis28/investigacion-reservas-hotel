@@ -25,7 +25,7 @@
 
 - **Instructor:** Eliseo Ernesto Hernández Díaz  
 - **Institution:** Faculty of Informatics and Applied Sciences  
-- **Date:** September 18, 2026  
+- **Date:** October 10, 2026  
 
 ---
 
