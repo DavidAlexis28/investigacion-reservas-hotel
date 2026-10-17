@@ -17,9 +17,9 @@
 | :-: | :-: | :--- | :--- |
 | 1 | 27-4135-2022 | AGUILAR ASCENCIO DAVID ALEXIS | `@DavidAlexis28` |
 | 2 | 25-2531-2022 | AMAYA HERNANDEZ ANGEL OTONIEL | `?` |
-| 3 | 27-1394-2022 | BERNAL HERNANDEZ JORGE ALEXANDER | `@alex-bernal` |
-| 4 | 29-1094-2021 | FERNANDEZ GONZALEZ MARIA FERNANDA | `@mfernanda` |
-| 5 | 28-2203-2023 | GUTIERREZ PEREZ LUIS PABLO | `@lpgutierrez` |
+| 3 | 25-0574-2024 | LARA LOPEZ CESAR GONZALO | `@cesarlaralopezlaralopez-prog` |
+| 4 | 17-0613-2024 | MENJIVAR CHAVEZ RICARDO FABIO | `@Fabio-Menjivar` |
+| 5 | 25-4222-2024 | MIRANDA GUZMAN ERICK ARMANDO | `?` |
 | 6 | 25-4370-2023 | MORENO MEJIA HECTOR ANTONIO | `@hector-more` |
 | 7 | 17-2696-2024 | REYES RODRIGUEZ SILVIA ARELY | `@SilviaReyes05` |
 
@@ -30,7 +30,6 @@
 ---
 
 ## Project Description
-
 **Lumina Hotels and Resorts** is an integrated platform designed for the automated management of hotel operations. The system centralizes room availability tracking, guest registration, real-time booking transactions, and administrative controls.
 
 To guarantee optimal performance under online transaction processing (OLTP) workloads, the architecture consists of a **modular Java 21 backend with Maven and JDBC over SQL Server 2022**, coupled with a **native mobile application built in Android Studio**, incorporating software engineering best practices and strict quality and performance controls.
@@ -38,7 +37,6 @@ To guarantee optimal performance under online transaction processing (OLTP) work
 ---
 
 ## Key System Features
-
 * **Room and Typology Management:** Real-time availability queries, filtering by features, and rate management.
 * **Transactional Booking Engine:** Secure creation, modification, lookup, and cancellation of reservations using JDBC prepared statements (`PreparedStatement`).
 * **Scalable Monorepo Architecture:** A clear modular split separating server-side logic (`backend/`) from the mobile client (`mobile/`).
@@ -84,4 +82,3 @@ investigacion-reservas-hotel/
 ├── README.md                           # General cover page and project metadata
 ├── LICENSE                             # Open-source license
 └── .gitignore                          # System and IDE file exclusions
-```
